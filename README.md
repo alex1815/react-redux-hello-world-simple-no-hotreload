@@ -6,6 +6,6 @@ A dead simple React & Redux implementation!
 
 ```bash
 git clone
-cd my-simple-app
+cd react-redux-hello-world-simple-no-hotreload
 npm start
 ```
