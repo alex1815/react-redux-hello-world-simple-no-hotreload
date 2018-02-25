@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 
 export const SUBTEXT_ACTION_TYPE = "SUBTEXT";
+const TEST_SUBTEXT_ACTION_TYPE = "SUBTEXT";
 
 // actions.js
 export const activateGeod = geod => ({
@@ -38,9 +39,19 @@ export const subTextReducer = (state = {}, action) => {
     }
 };
 
+export const testSubTextReducer = (state = {}, action) => {
+    switch (action.type) {
+        case TEST_SUBTEXT_ACTION_TYPE:
+            return action.text;
+        default:
+            return state;
+    }
+};
+
 export const reducers = combineReducers({
   geod: geod,
   subText: subTextReducer,
+    testSecondSubText: testSubTextReducer,
 });
 
 // store.js

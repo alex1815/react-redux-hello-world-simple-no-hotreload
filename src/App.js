@@ -31,8 +31,10 @@ export class App extends Component {
           <button onClick={() => this.props.setSubText(`${new Date()}`)}>
               Set subtext
           </button>
-
+          <br></br>
        <span> {`${ this.props.subText }`} </span>
+              <br></br>
+       <span> Test second reducer {`${ this.props.testSecondSubText }`} </span>
 
       </div>
     );
@@ -43,7 +45,8 @@ export class App extends Component {
 // AppContainer.js
 const mapStateToProps = (state, ownProps) => ({
     geod: state.geod,
-    subText: state.subText
+    subText: state.subText,
+    testSecondSubText: state.testSecondSubText,
 });
 
 const mapDispatchToProps = dispatch => {
