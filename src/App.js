@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import {
   activateGeod,
   closeGeod,
+    subTextAction,
 } from './redux';
 
 // App.js
@@ -27,6 +28,12 @@ export class App extends Component {
           </button>
        }
 
+          <button onClick={() => this.props.setSubText(`${new Date()}`)}>
+              Set subtext
+          </button>
+
+       <span> {`${ this.props.subText }`} </span>
+
       </div>
     );
   }
@@ -35,12 +42,16 @@ export class App extends Component {
 
 // AppContainer.js
 const mapStateToProps = (state, ownProps) => ({
-  geod: state.geod,
+    geod: state.geod,
+    subText: state.subText
 });
 
-const mapDispatchToProps = {
-  activateGeod,
-  closeGeod,
+const mapDispatchToProps = dispatch => {
+  return {
+      activateGeod: geod => dispatch(activateGeod(geod)),
+      closeGeod: () => dispatch(closeGeod()),
+      setSubText: text => dispatch(subTextAction(text))
+  }
 };
 
 const AppContainer = connect(
